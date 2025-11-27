@@ -55,11 +55,11 @@ export const MobileMenu = () => {
       )}
 
       <nav
-        className={`fixed top-0 right-0 h-full w-64 bg-gray-900 border-l border-gray-800 shadow-2xl z-[9998] transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-[#111827] border-l border-gray-700 shadow-2xl z-[9998] transform transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <ul className="flex flex-col gap-2 pt-20 px-4">
+        <ul className="flex flex-col gap-2 pt-20 px-4 bg-[#111827]">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
