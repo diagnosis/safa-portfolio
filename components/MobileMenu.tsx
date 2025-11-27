@@ -55,22 +55,22 @@ export const MobileMenu = () => {
       )}
 
       <nav
-        className={`fixed top-0 right-0 h-full w-72 bg-[#111827] border-l border-gray-700 shadow-2xl z-[9998] transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${
+        className={`fixed top-0 right-0 h-screen w-64 bg-[#111827] border-l border-gray-700 shadow-2xl z-[9998] transform transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="pt-20 pb-6 px-6 flex-1 overflow-y-auto">
-          <ul className="flex flex-col gap-3">
+        <div className="pt-24 px-5">
+          <ul className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={toggleMenu}
-                  className={`block px-5 py-4 rounded-lg transition-all font-medium ${
+                  className={`block px-4 py-3 rounded-lg transition-all ${
                     isActive(link.href)
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                      ? "bg-blue-600 text-white"
                       : "text-gray-300 hover:bg-gray-800 hover:text-white"
-                  } ${link.href === "/contact" ? "bg-blue-600 hover:bg-blue-500 text-white mt-6 shadow-lg shadow-blue-600/30" : ""}`}
+                  } ${link.href === "/contact" ? "bg-blue-600 hover:bg-blue-500 text-white mt-4" : ""}`}
                 >
                   {link.label}
                 </Link>
