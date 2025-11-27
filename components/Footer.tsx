@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const Footer = () => (
-    <footer className="bg-gradient-to-t from-gray-950 to-gray-900 border-t border-gray-800 py-12">
+    <footer className="bg-gradient-to-t from-gray-950 to-gray-900 border-t border-gray-800 py-8 md:py-12">
         <div className="max-w-6xl mx-auto px-4">
-            <div className="flex justify-center gap-8 mb-6">
+            <div className="flex justify-center gap-6 md:gap-8 mb-6">
                 <Link
                     href="https://github.com/diagnosis"
                     target="_blank"

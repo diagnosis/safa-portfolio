@@ -1,15 +1,16 @@
 import Link from "next/link";
+import { MobileMenu } from "./MobileMenu";
 
 export const Header = () =>
-    <header className="bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 py-5 px-6 sticky top-0 z-50 transition-all-smooth">
+    <header className="bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 py-4 px-4 md:py-5 md:px-6 sticky top-0 z-50 transition-all-smooth">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <Link href="/" className="text-xl font-bold hover:text-blue-400 transition-all-smooth hover:scale-105">
+            <Link href="/" className="text-lg md:text-xl font-bold hover:text-blue-400 transition-all-smooth hover:scale-105">
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     ❮Safa Dev❯
                 </span>
             </Link>
 
-            <nav>
+            <nav className="hidden lg:block">
                 <ul className="flex gap-8">
                     <li>
                         <Link href="/about" className="relative text-gray-300 hover:text-white transition-all-smooth group">
@@ -42,5 +43,7 @@ export const Header = () =>
                     </li>
                 </ul>
             </nav>
+
+            <MobileMenu />
         </div>
     </header>

@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 
 export default function CVPage() {
     return (
-        <div className="max-w-4xl mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto px-4 py-12 md:py-20">
             {/* Header */}
-            <div className="mb-12 text-center">
-                <h1 className="text-4xl font-bold mb-2">Safa Demirkan</h1>
-                <p className="text-xl text-muted-foreground mb-6">
+            <div className="mb-10 md:mb-12 text-center">
+                <h1 className="text-3xl md:text-4xl font-bold mb-2">Safa Demirkan</h1>
+                <p className="text-lg md:text-xl text-muted-foreground mb-6">
                     Software Engineer | Full-Stack Developer | SDET
                 </p>
-                <div className="flex gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                     <Button asChild>
                         <a href="/resume/resume-safa-demirkan.pdf" download>
                             Download PDF Resume
@@ -32,12 +32,12 @@ export default function CVPage() {
             </div>
 
             {/* Summary */}
-            <Card className="mb-8">
+            <Card className="mb-6 md:mb-8">
                 <CardHeader>
                     <CardTitle>Summary</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-lg leading-relaxed">
+                    <p className="text-base md:text-lg leading-relaxed">
                         Software Engineer with 9+ years of experience in test automation, CI/CD, and software quality,
                         now transitioning to full-stack development. Recently built production-ready applications using
                         Go, React, PostgreSQL, and Docker. Strong foundation in system architecture, debugging, and
@@ -48,10 +48,10 @@ export default function CVPage() {
             </Card>
 
             {/* Projects Section - FIRST! */}
-            <section className="mb-12">
-                <h2 className="text-3xl font-bold mb-6">Projects</h2>
+            <section className="mb-10 md:mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Projects</h2>
 
-                <Card className="mb-6">
+                <Card className="mb-4 md:mb-6">
                     <CardHeader>
                         <div className="flex justify-between items-start">
                             <div>
@@ -97,7 +97,7 @@ export default function CVPage() {
                             </li>
                         </ul>
 
-                        <div className="flex gap-3">
+                        <div className="flex flex-col sm:flex-row gap-3">
                             <Button asChild size="sm">
                                 <a href="https://interactive-todo.safadev.app" target="_blank" rel="noopener noreferrer">
                                     Live Demo →
@@ -127,8 +127,8 @@ export default function CVPage() {
             </section>
 
             {/* Skills Section */}
-            <section className="mb-12">
-                <h2 className="text-3xl font-bold mb-6">Technical Skills</h2>
+            <section className="mb-10 md:mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Technical Skills</h2>
 
                 <Card>
                     <CardContent className="pt-6">
@@ -159,10 +159,10 @@ export default function CVPage() {
             </section>
 
             {/* Work Experience */}
-            <section className="mb-12">
-                <h2 className="text-3xl font-bold mb-6">Work Experience</h2>
+            <section className="mb-10 md:mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Work Experience</h2>
 
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                     <ExperienceCard
                         company="Wizards of the Coast"
                         title="Software Development Engineer in Test"
@@ -226,7 +226,7 @@ export default function CVPage() {
 
             {/* Education */}
             <section>
-                <h2 className="text-3xl font-bold mb-6">Education</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Education</h2>
 
                 <Card>
                     <CardContent className="pt-6">
@@ -294,12 +294,12 @@ function ExperienceCard({
     return (
         <Card>
             <CardHeader>
-                <div className="flex justify-between items-start">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0">
                     <div>
-                        <CardTitle className="text-xl mb-1">{company}</CardTitle>
-                        <p className="text-muted-foreground">{title}</p>
+                        <CardTitle className="text-lg md:text-xl mb-1">{company}</CardTitle>
+                        <p className="text-sm md:text-base text-muted-foreground">{title}</p>
                     </div>
-                    <div className="text-right text-sm text-muted-foreground">
+                    <div className="text-left sm:text-right text-xs md:text-sm text-muted-foreground">
                         <p>{period}</p>
                         <p>{location}</p>
                     </div>
