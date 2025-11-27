@@ -12,21 +12,27 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
     return (
         <div className={"max-w-6xl mx-auto px-4 py-20"}>
-            <div className={"mb-16 text-center"}>
-                <h1 className={"text-4xl font-bold mb-4"}>Projects</h1>
-                <p className={"text-xl text-muted-foreground max-w-2xl mx-auto"}>
+            <div className={"mb-16 text-center animate-slide-down"}>
+                <h1 className={"text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent"}>Projects</h1>
+                <p className={"text-xl text-gray-400 max-w-2xl mx-auto"}>
                     A collection of full-stack applications and backend services showcasing modern development practices,
                     automated testing, and production deployments.
                 </p>
             </div>
 
             <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"}>
-                {projects.map((project) => (
-                    <ProjectCard key={project.slug} project={project}/>
+                {projects.map((project, index) => (
+                    <div
+                        key={project.slug}
+                        className="animate-slide-up"
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                        <ProjectCard project={project}/>
+                    </div>
                 ))}
-                <div className="border-2 border-dashed border-gray-700 rounded-lg p-8 flex flex-col items-center justify-center min-h-[300px]">
-                    <h3 className="text-xl font-semibold mb-2">More Projects Coming Soon</h3>
-                    <p className="text-muted-foreground text-center">
+                <div className="border-2 border-dashed border-gray-700 rounded-lg p-8 flex flex-col items-center justify-center min-h-[300px] hover:border-gray-600 transition-all-smooth animate-slide-up" style={{ animationDelay: `${projects.length * 0.1}s` }}>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-300">More Projects Coming Soon</h3>
+                    <p className="text-gray-500 text-center">
                         Currently building new full-stack applications
                     </p>
                 </div>

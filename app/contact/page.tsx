@@ -51,14 +51,14 @@ export default function ContactPage() {
 
     return (
         <div className="max-w-2xl mx-auto px-4 py-20">
-            <div className="mb-12 text-center">
-                <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
-                <p className="text-xl text-muted-foreground">
+            <div className="mb-12 text-center animate-slide-down">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">Get in Touch</h1>
+                <p className="text-xl text-gray-400">
                     Interested in collaboration or have a question? I'd love to hear from you.
                 </p>
             </div>
 
-            <Card>
+            <Card className="border-gray-800 bg-gray-900/50 backdrop-blur-sm animate-slide-up">
                 <CardHeader>
                     <CardTitle>Send Me a Message</CardTitle>
                     <CardDescription>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             {/* Name */}
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                                <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
                                     Name *
                                 </label>
                                 <input
@@ -91,14 +91,14 @@ export default function ContactPage() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     disabled={status === "loading"}
-                                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all-smooth disabled:opacity-50 hover:border-gray-600"
                                     placeholder="Your name"
                                 />
                             </div>
 
                             {/* Email */}
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                                <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">
                                     Email *
                                 </label>
                                 <input
@@ -109,14 +109,14 @@ export default function ContactPage() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     disabled={status === "loading"}
-                                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all-smooth disabled:opacity-50 hover:border-gray-600"
                                     placeholder="your.email@example.com"
                                 />
                             </div>
 
                             {/* Subject */}
                             <div>
-                                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                                <label htmlFor="subject" className="block text-sm font-medium mb-2 text-gray-300">
                                     Subject *
                                 </label>
                                 <input
@@ -127,14 +127,14 @@ export default function ContactPage() {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     disabled={status === "loading"}
-                                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all-smooth disabled:opacity-50 hover:border-gray-600"
                                     placeholder="What's this about?"
                                 />
                             </div>
 
                             {/* Message */}
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                                <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-300">
                                     Message *
                                 </label>
                                 <textarea
@@ -145,7 +145,7 @@ export default function ContactPage() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     disabled={status === "loading"}
-                                    className="w-full px-4 py-2 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all-smooth disabled:opacity-50 hover:border-gray-600 resize-none"
                                     placeholder="Your message..."
                                 />
                             </div>
@@ -157,8 +157,7 @@ export default function ContactPage() {
                                 </div>
                             )}
 
-                            {/* Submit Button */}
-                            <Button type="submit" size="lg" className="w-full" disabled={status === "loading"}>
+                            <Button type="submit" size="lg" className="w-full bg-blue-600 hover:bg-blue-500 transition-all-smooth hover:scale-[1.02]" disabled={status === "loading"}>
                                 {status === "loading" ? "Sending..." : "Send Message"}
                             </Button>
                         </form>
@@ -166,12 +165,11 @@ export default function ContactPage() {
                 </CardContent>
             </Card>
 
-            {/* Direct Contact Info */}
-            <div className="mt-12 text-center">
-                <p className="text-muted-foreground mb-2">Or email me directly at:</p>
+            <div className="mt-12 text-center animate-fade-in">
+                <p className="text-gray-400 mb-2">Or email me directly at:</p>
                 <a
                     href="mailto:demirkan@safadev.app"
-                    className="text-lg text-blue-500 hover:underline"
+                    className="text-lg text-blue-400 hover:text-blue-300 transition-all-smooth hover:underline"
                 >
                     demirkan@safadev.app
                 </a>

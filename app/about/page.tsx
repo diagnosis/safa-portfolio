@@ -9,16 +9,14 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <div className="max-w-4xl mx-auto px-4 py-20">
-            {/* Header Section */}
-            <div className="mb-16 text-center">
-                <h1 className="text-4xl font-bold mb-4">About Me</h1>
-                <p className="text-xl text-muted-foreground">
+            <div className="mb-16 text-center animate-slide-down">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">About Me</h1>
+                <p className="text-xl text-gray-400">
                     Software Engineer | Full-Stack Developer | SDET
                 </p>
             </div>
 
-            {/* Main Content */}
-            <div className="space-y-8 text-lg leading-relaxed">
+            <div className="space-y-8 text-lg leading-relaxed text-gray-300 animate-slide-up">
                 <p>
                     With nearly a decade of experience as a Software Development Engineer in Test,
                     I've grown from building automation frameworks into designing complete,
@@ -59,12 +57,11 @@ export default function About() {
                 </p>
             </div>
 
-            {/* CTA Section */}
-            <div className="mt-16 flex gap-4 justify-center">
-                <Button asChild size="lg">
+            <div className="mt-16 flex gap-4 justify-center animate-fade-in">
+                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-500 transition-all-smooth hover:scale-105">
                     <Link href="/projects">View My Projects</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button asChild size="lg" variant="outline" className="border-gray-700 hover:border-blue-500 hover:text-blue-400 transition-all-smooth">
                     <Link href="/contact">Get in Touch</Link>
                 </Button>
             </div>
