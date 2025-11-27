@@ -25,7 +25,7 @@ export const MobileMenu = () => {
     <>
       <button
         onClick={toggleMenu}
-        className="lg:hidden flex flex-col gap-1.5 w-6 h-6 justify-center items-center z-50"
+        className="lg:hidden flex flex-col gap-1.5 w-6 h-6 justify-center items-center relative z-[60]"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
@@ -48,14 +48,14 @@ export const MobileMenu = () => {
 
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[55] lg:hidden"
           onClick={toggleMenu}
           aria-hidden="true"
         />
       )}
 
       <nav
-        className={`fixed top-0 right-0 h-full w-64 bg-gray-900 border-l border-gray-800 z-40 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-gray-900 border-l border-gray-800 z-[56] transform transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
