@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
     return (
-        <div className={"max-w-6xl mx-auto px-4 py-20"}>
-            <div className={"mb-16 text-center animate-slide-down"}>
-                <h1 className={"text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent"}>Projects</h1>
-                <p className={"text-xl text-gray-400 max-w-2xl mx-auto"}>
+        <div className={"max-w-6xl mx-auto px-4 py-12 md:py-20"}>
+            <div className={"mb-12 md:mb-16 text-center animate-slide-down"}>
+                <h1 className={"text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent"}>Projects</h1>
+                <p className={"text-lg md:text-xl text-gray-400 max-w-2xl mx-auto"}>
                     A collection of full-stack applications and backend services showcasing modern development practices,
                     automated testing, and production deployments.
                 </p>
