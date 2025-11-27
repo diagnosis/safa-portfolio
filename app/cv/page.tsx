@@ -1,0 +1,320 @@
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+    title: "Resume/CV | Safa Demirkan",
+    description: "Software Engineer with 9+ years of experience, specializing in full-stack development and test automation.",
+};
+
+export default function CVPage() {
+    return (
+        <div className="max-w-4xl mx-auto px-4 py-20">
+            {/* Header */}
+            <div className="mb-12 text-center">
+                <h1 className="text-4xl font-bold mb-2">Safa Demirkan</h1>
+                <p className="text-xl text-muted-foreground mb-6">
+                    Software Engineer | Full-Stack Developer | SDET
+                </p>
+                <div className="flex gap-4 justify-center">
+                    <Button asChild>
+                        <a href="/resume/resume-safa-demirkan.pdf" download>
+                            Download PDF Resume
+                        </a>
+                    </Button>
+                    <Button asChild variant="outline">
+                        <a href="mailto:demirkan@safadev.app">
+                            Contact Me
+                        </a>
+                    </Button>
+                </div>
+            </div>
+
+            {/* Summary */}
+            <Card className="mb-8">
+                <CardHeader>
+                    <CardTitle>Summary</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-lg leading-relaxed">
+                        Software Engineer with 9+ years of experience in test automation, CI/CD, and software quality,
+                        now transitioning to full-stack development. Recently built production-ready applications using
+                        Go, React, PostgreSQL, and Docker. Strong foundation in system architecture, debugging, and
+                        automated testing. Proven ability to learn new technologies quickly and deliver reliable,
+                        well-tested software.
+                    </p>
+                </CardContent>
+            </Card>
+
+            {/* Projects Section - FIRST! */}
+            <section className="mb-12">
+                <h2 className="text-3xl font-bold mb-6">Projects</h2>
+
+                <Card className="mb-6">
+                    <CardHeader>
+                        <div className="flex justify-between items-start">
+                            <div>
+                                <CardTitle className="text-xl mb-2">Interactive Todo Application</CardTitle>
+                                <p className="text-sm text-muted-foreground">2025 - Present</p>
+                            </div>
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="mb-4">
+                            Production full-stack task management platform with team-based workflows, authentication,
+                            and role-based access control.
+                        </p>
+
+                        <div className="mb-4">
+                            <div className="flex flex-wrap gap-2">
+                                {['Go', 'React', 'PostgreSQL', 'TypeScript', 'TanStack Router', 'TanStack Query', 'Playwright', 'Docker', 'Nginx'].map(tech => (
+                                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                                ))}
+                            </div>
+                        </div>
+
+                        <ul className="space-y-2 mb-4">
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Designed and built secure REST API in Go with JWT authentication and role-based authorization</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Implemented team management, task assignment, and refresh token security patterns</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Developed React SPA with TanStack ecosystem for optimistic UI and smart caching</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Created comprehensive E2E test suite with Playwright for API validation</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Deployed with Docker, Nginx, and automated CI/CD pipeline on DigitalOcean</span>
+                            </li>
+                        </ul>
+
+                        <div className="flex gap-3">
+                            <Button asChild size="sm">
+                                <a href="https://interactive-todo.safadev.app" target="_blank" rel="noopener noreferrer">
+                                    Live Demo →
+                                </a>
+                            </Button>
+                            <Button asChild size="sm" variant="outline">
+                                <a href="https://github.com/diagnosis/interactive-todo" target="_blank" rel="noopener noreferrer">
+                                    GitHub →
+                                </a>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                {/* Coming Soon Project */}
+                <Card className="border-dashed">
+                    <CardHeader>
+                        <CardTitle className="text-xl">More Projects Coming Soon</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground">
+                            Currently building new full-stack applications weekly. Next up: Real-time chat application
+                            with WebSockets.
+                        </p>
+                    </CardContent>
+                </Card>
+            </section>
+
+            {/* Skills Section */}
+            <section className="mb-12">
+                <h2 className="text-3xl font-bold mb-6">Technical Skills</h2>
+
+                <Card>
+                    <CardContent className="pt-6">
+                        <div className="space-y-6">
+                            <SkillCategory
+                                title="Languages"
+                                skills={['Go', 'TypeScript', 'JavaScript', 'Java', 'Kotlin', 'SQL']}
+                            />
+                            <SkillCategory
+                                title="Frontend"
+                                skills={['React', 'Next.js', 'TanStack Router', 'TanStack Query', 'Tailwind CSS', 'Vite']}
+                            />
+                            <SkillCategory
+                                title="Backend"
+                                skills={['Go (Chi, pgx)', 'REST APIs', 'PostgreSQL', 'Docker', 'Nginx', 'Node.js']}
+                            />
+                            <SkillCategory
+                                title="Testing & QA"
+                                skills={['Playwright', 'Selenium', 'Appium', 'Cucumber', 'JUnit', 'TestNG', 'Jest']}
+                            />
+                            <SkillCategory
+                                title="DevOps & Tools"
+                                skills={['GitHub Actions', 'Jenkins', 'GitLab CI/CD', 'AWS', 'Docker', 'Kubernetes', 'Git', 'Linux']}
+                            />
+                        </div>
+                    </CardContent>
+                </Card>
+            </section>
+
+            {/* Work Experience */}
+            <section className="mb-12">
+                <h2 className="text-3xl font-bold mb-6">Work Experience</h2>
+
+                <div className="space-y-6">
+                    <ExperienceCard
+                        company="Wizards of the Coast"
+                        title="Software Development Engineer in Test"
+                        location="Renton, WA"
+                        period="Jan 2019 - May 2025"
+                        achievements={[
+                            "Developed and maintained test automation framework using Java and Kotlin, improving code quality and reducing manual testing efforts",
+                            "Integrated automated tests with CI/CD pipelines using Jenkins and GitLab",
+                            "Created automation tests for Android and iOS apps with Appium, increasing test coverage by 40% in 6 months",
+                            "Formulated BDD framework with Cucumber, Selenium, and Appium, reducing defects by 25%",
+                            "Implemented web automation using Playwright for web applications"
+                        ]}
+                    />
+
+                    <ExperienceCard
+                        company="Providence Health Services"
+                        title="Software Development Engineer in Test"
+                        location="Seattle, WA"
+                        period="Jul 2018 - Jan 2019"
+                        achievements={[
+                            "Developed automation framework for Android, iOS, and Web apps, increasing test coverage by 50% in 4 months",
+                            "Optimized mobile app testing with automated deep linking and parallel tests",
+                            "Directed Agile testing strategies with CI/CD integration via Bitrise"
+                        ]}
+                    />
+
+                    <ExperienceCard
+                        company="Sempra Energy"
+                        title="Software Development Engineer in Test"
+                        location="Redmond, WA"
+                        period="Nov 2017 - May 2018"
+                        achievements={[
+                            "Participated in Agile scrum environment with grooming, sprint planning, and retrospectives",
+                            "Automated tests with WebDriver and Cucumber, increasing test coverage by 40% within 3 months"
+                        ]}
+                    />
+
+                    <ExperienceCard
+                        company="Hilton"
+                        title="Software Development Engineer in Test / Test Lead Engineer"
+                        location="Memphis, TN"
+                        period="Mar 2017 - Nov 2017"
+                        achievements={[
+                            "Led test strategy with CI/CD via Jenkins for iOS/Android apps",
+                            "Built automated test scripts using Selenium and Appium, enhancing coverage by 60%"
+                        ]}
+                    />
+
+                    <ExperienceCard
+                        company="American Express"
+                        title="Software Development Engineer in Test"
+                        location="NYC, NY"
+                        period="Nov 2015 - Jan 2017"
+                        achievements={[
+                            "Created and maintained automated tests with Selenium WebDriver in CI environment",
+                            "Drove user story analysis and designed automation tools to improve development efficiency"
+                        ]}
+                    />
+                </div>
+            </section>
+
+            {/* Education */}
+            <section>
+                <h2 className="text-3xl font-bold mb-6">Education</h2>
+
+                <Card>
+                    <CardContent className="pt-6">
+                        <div className="space-y-6">
+                            <div>
+                                <div className="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 className="text-xl font-semibold">Northwestern University</h3>
+                                        <p className="text-muted-foreground">MS, Biomedical Engineering</p>
+                                    </div>
+                                    <span className="text-muted-foreground">Jan 2013 - Jan 2015</span>
+                                </div>
+                                <p className="text-sm">GPA: 3.5</p>
+                            </div>
+
+                            <div className="border-t border-gray-800 pt-6">
+                                <div className="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h3 className="text-xl font-semibold">Yeditepe University</h3>
+                                        <p className="text-muted-foreground">BS, Biomedical Engineering</p>
+                                    </div>
+                                    <span className="text-muted-foreground">Jan 2007 - Jan 2011</span>
+                                </div>
+                                <p className="text-sm">GPA: 3.6</p>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </section>
+        </div>
+    );
+}
+
+// Helper Components
+function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
+    return (
+        <div>
+            <h3 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
+                {title}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+                {skills.map(skill => (
+                    <Badge key={skill} variant="secondary">
+                        {skill}
+                    </Badge>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function ExperienceCard({
+                            company,
+                            title,
+                            location,
+                            period,
+                            achievements
+                        }: {
+    company: string;
+    title: string;
+    location: string;
+    period: string;
+    achievements: string[];
+}) {
+    return (
+        <Card>
+            <CardHeader>
+                <div className="flex justify-between items-start">
+                    <div>
+                        <CardTitle className="text-xl mb-1">{company}</CardTitle>
+                        <p className="text-muted-foreground">{title}</p>
+                    </div>
+                    <div className="text-right text-sm text-muted-foreground">
+                        <p>{period}</p>
+                        <p>{location}</p>
+                    </div>
+                </div>
+            </CardHeader>
+            <CardContent>
+                <ul className="space-y-2">
+                    {achievements.map((achievement, index) => (
+                        <li key={index} className="flex items-start">
+                            <span className="text-blue-500 mr-2">•</span>
+                            <span>{achievement}</span>
+                        </li>
+                    ))}
+                </ul>
+            </CardContent>
+        </Card>
+    );
+}
