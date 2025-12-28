@@ -21,6 +21,73 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        slug: 'realtime-chat-app',
+        title: 'Real-Time WebSocket Chat',
+        description: 'Production WebSocket chat application with Go backend, message history, online user tracking, and mobile-responsive design.',
+        longDescription:
+            'A real-time chat application built from scratch to learn WebSocket patterns, Go concurrency, and SPA architecture. Features include instant messaging, online user presence, message history persistence, and a custom vanilla JavaScript router. Deployed on Fly.io with full mobile support.',
+
+        techStack: [
+            'Go',
+            'Gorilla WebSocket',
+            'Vanilla JavaScript',
+            'Tailwind CSS',
+            'SPA Router (Custom)',
+            'Fly.io',
+            'Docker'
+        ],
+
+        liveUrl: 'https://chat-app-sd.fly.dev',
+        githubUrl: 'https://github.com/diagnosis/chat-app',
+        featured: true,
+
+        problem:
+            'Build a production-ready real-time chat to deeply understand WebSocket communication, Go concurrency patterns (channels, goroutines), and single-page application architecture without frameworks.',
+
+        solution:
+            'Designed a Hub-and-Spoke architecture using Go channels for safe concurrent access. Implemented a custom SPA router in vanilla JavaScript to avoid framework overhead while learning core concepts. WebSocket connections handle bidirectional real-time messaging with automatic reconnection and message history.',
+
+        features: [
+            'Real-time bidirectional messaging via WebSocket',
+            'Hub pattern with Go channels (no mutexes needed)',
+            'Fan-in/fan-out concurrency for message broadcasting',
+            'Message history (last 20 messages) persisted in-memory',
+            'Online users tracking with live updates',
+            'Join/leave notifications',
+            'Custom SPA router (home → chat navigation)',
+            'Mobile-responsive design with toggle sidebar',
+            'Dynamic WebSocket URL for local/production environments',
+            'Auto-scroll to latest messages'
+        ],
+
+        screenshots: [
+            '/projects/chat-app/home.webp',
+            '/projects/chat-app/chat-desktop.webp',
+            '/projects/chat-app/chat-mobile.webp'
+        ],
+
+        challenges: [
+            'Understanding Go channels vs mutexes for safe concurrent state',
+            'Preventing race conditions in multi-user scenarios',
+            'Building SPA routing from scratch without React Router',
+            'WebSocket connection handling across page refreshes',
+            'Making sidebar overlay work smoothly on mobile',
+            'Deploying WebSocket apps (different from HTTP-only apps)'
+        ],
+
+        learnings: [
+            'Go concurrency: channels serialize access, eliminating mutex needs',
+            'Hub pattern: single goroutine owns all shared state',
+            'WebSocket lifecycle: open, message, close, error handling',
+            'SPA principles: history.pushState, popstate events, dynamic rendering',
+            'Deployment: Dockerfile multi-stage builds, environment variables',
+            'Why "share memory by communicating" is powerful in Go'
+        ],
+
+        architecture:
+            'Backend: Go with Hub pattern managing all client connections in a single goroutine. Channels (register, unregister, broadcast) provide safe message passing between goroutines. WebSocket connections run ReadPump and WritePump in separate goroutines per client. Message history stored as []byte slice in Hub (last 20). Frontend: Vanilla JavaScript SPA with custom router handling URL changes and view rendering. WebSocket connects dynamically (ws:// local, wss:// production). Tailwind CSS for responsive mobile-first design.'
+    },
+    {
         slug: 'interactive-todo-app',
         title: 'Interactive Todo Application',
         description: 'Full-stack team-based task management platform with authentication, teams, assignments, and secure role-based access.',
