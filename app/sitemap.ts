@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://safademirkan.com';
+  const baseUrl = 'https://portfolio.safadev.app';
 
   return [
     {
