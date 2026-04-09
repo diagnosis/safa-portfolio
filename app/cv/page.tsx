@@ -19,7 +19,7 @@ export default function CVPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                     <Button asChild>
-                        <a href="/resume/resume-safa-demirkan.pdf" download>
+                        <a href="/resume/safa_demirkan_resume.pdf" download>
                             Download PDF Resume
                         </a>
                     </Button>
@@ -39,24 +39,88 @@ export default function CVPage() {
                 <CardContent>
                     <p className="text-base md:text-lg leading-relaxed">
                         Software Engineer with 9+ years of experience in test automation, CI/CD, and software quality,
-                        now transitioning to full-stack development. Recently built production-ready applications using
-                        Go, React, PostgreSQL, and Docker. Strong foundation in system architecture, debugging, and
-                        automated testing. Proven ability to learn new technologies quickly and deliver reliable,
-                        well-tested software.
+                        now transitioning into full-stack development. Recently built and launched production applications
+                        using Go, React, React Native, and PostgreSQL — including a live iOS app on the App Store.
+                        Strong foundation in system architecture, debugging, and automated testing, with a proven track
+                        record of improving release quality and reducing manual effort through tooling and frameworks.
                     </p>
                 </CardContent>
             </Card>
 
-            {/* Projects Section - FIRST! */}
+            {/* Projects Section */}
             <section className="mb-10 md:mb-12">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Projects</h2>
 
+                {/* LuxSUV */}
+                <Card className="mb-4 md:mb-6">
+                    <CardHeader>
+                        <div className="flex justify-between items-start">
+                            <div>
+                                <CardTitle className="text-xl mb-2">LuxSUV — Premium Ground Transportation Platform</CardTitle>
+                                <p className="text-sm text-muted-foreground">Oct 2024 – Present</p>
+                            </div>
+                        </div>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="mb-4">
+                            Full-stack luxury ride-sharing platform for the Seattle–Vancouver BC corridor. Spans a Go REST API,
+                            React rider web app, React Native iOS driver app, and React admin portal — all live in production.
+                        </p>
+
+                        <div className="mb-4">
+                            <div className="flex flex-wrap gap-2">
+                                {['Go', 'React', 'React Native', 'Expo', 'PostgreSQL', 'TypeScript', 'Stripe', 'Google Maps API', 'TanStack Router', 'TanStack Query', 'SSE', 'EAS Build', 'Playwright', 'DigitalOcean', 'Vercel'].map(tech => (
+                                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                                ))}
+                            </div>
+                        </div>
+
+                        <ul className="space-y-2 mb-4">
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Architected and deployed a Go REST API on DigitalOcean serving three client applications: rider web app, driver iOS app, and admin portal.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Implemented multi-role JWT authentication with separate flows for web (httpOnly cookies) and mobile (SecureStore), plus role-based middleware for Rider, Driver, and Admin.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Integrated Stripe payments, Google Distance Matrix API for dynamic route pricing, and Server-Sent Events for real-time ride tracking.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Built and published a React Native/Expo driver app to the App Store via EAS Build, including background location tracking and TestFlight distribution.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Developed a Playwright E2E test suite with GitHub Actions CI/CD pipeline connected to Neon PostgreSQL and MailHog.</span>
+                            </li>
+                        </ul>
+
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <Button asChild size="sm">
+                                <a href="https://rider.luxsuv.us" target="_blank" rel="noopener noreferrer">
+                                    Live Demo →
+                                </a>
+                            </Button>
+                            {/* Add App Store link once available */}
+                            {/* <Button asChild size="sm" variant="outline">
+                                <a href="https://apps.apple.com/..." target="_blank" rel="noopener noreferrer">
+                                    App Store →
+                                </a>
+                            </Button> */}
+                        </div>
+                    </CardContent>
+                </Card>
+
+                {/* Interactive Todo */}
                 <Card className="mb-4 md:mb-6">
                     <CardHeader>
                         <div className="flex justify-between items-start">
                             <div>
                                 <CardTitle className="text-xl mb-2">Interactive Todo Application</CardTitle>
-                                <p className="text-sm text-muted-foreground">2025 - Present</p>
+                                <p className="text-sm text-muted-foreground">Nov 2025</p>
                             </div>
                         </div>
                     </CardHeader>
@@ -111,19 +175,6 @@ export default function CVPage() {
                         </div>
                     </CardContent>
                 </Card>
-
-                {/* Coming Soon Project */}
-                <Card className="border-dashed">
-                    <CardHeader>
-                        <CardTitle className="text-xl">More Projects Coming Soon</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground">
-                            Currently building new full-stack applications weekly. Next up: Real-time chat application
-                            with WebSockets.
-                        </p>
-                    </CardContent>
-                </Card>
             </section>
 
             {/* Skills Section */}
@@ -144,6 +195,10 @@ export default function CVPage() {
                             <SkillCategory
                                 title="Backend"
                                 skills={['Go (Chi, pgx)', 'REST APIs', 'PostgreSQL', 'Docker', 'Nginx', 'Node.js']}
+                            />
+                            <SkillCategory
+                                title="Mobile"
+                                skills={['React Native', 'Expo', 'EAS Build', 'App Store Submission', 'iOS', 'Android']}
                             />
                             <SkillCategory
                                 title="Testing & QA"
@@ -169,11 +224,11 @@ export default function CVPage() {
                         location="Renton, WA"
                         period="Jan 2019 - May 2025"
                         achievements={[
-                            "Developed and maintained test automation framework using Java and Kotlin, improving code quality and reducing manual testing efforts",
-                            "Integrated automated tests with CI/CD pipelines using Jenkins and GitLab",
-                            "Created automation tests for Android and iOS apps with Appium, increasing test coverage by 40% in 6 months",
-                            "Formulated BDD framework with Cucumber, Selenium, and Appium, reducing defects by 25%",
-                            "Implemented web automation using Playwright for web applications"
+                            "Built Java/Kotlin test automation framework, reducing manual testing effort significantly across web and mobile.",
+                            "Developed Android/iOS automation with Appium, increasing test coverage by 40% in 6 months.",
+                            "Implemented BDD framework (Cucumber, Selenium, Appium), reducing defects by 25% within one year.",
+                            "Integrated test suites into Jenkins/GitLab CI/CD pipelines; deployed scalable environments on AWS, Docker, and Kubernetes.",
+                            "Adopted Playwright for web automation, boosting test efficiency by 40% in 6 months.",
                         ]}
                     />
 
@@ -183,9 +238,8 @@ export default function CVPage() {
                         location="Seattle, WA"
                         period="Jul 2018 - Jan 2019"
                         achievements={[
-                            "Developed automation framework for Android, iOS, and Web apps, increasing test coverage by 50% in 4 months",
-                            "Optimized mobile app testing with automated deep linking and parallel tests",
-                            "Directed Agile testing strategies with CI/CD integration via Bitrise"
+                            "Built Android/iOS/Web automation framework (Java, JUnit, JavaScript), increasing test coverage by 50% in 4 months.",
+                            "Automated deep linking and parallel mobile tests; Agile test strategy via Bitrise CI reduced system downtime by 30%.",
                         ]}
                     />
 
@@ -195,8 +249,7 @@ export default function CVPage() {
                         location="Redmond, WA"
                         period="Nov 2017 - May 2018"
                         achievements={[
-                            "Participated in Agile scrum environment with grooming, sprint planning, and retrospectives",
-                            "Automated tests with WebDriver and Cucumber, increasing test coverage by 40% within 3 months"
+                            "Automated tests with WebDriver and Cucumber, increasing test coverage by 40% within 3 months.",
                         ]}
                     />
 
@@ -206,8 +259,7 @@ export default function CVPage() {
                         location="Memphis, TN"
                         period="Mar 2017 - Nov 2017"
                         achievements={[
-                            "Led test strategy with CI/CD via Jenkins for iOS/Android apps",
-                            "Built automated test scripts using Selenium and Appium, enhancing coverage by 60%"
+                            "Led test strategy with Jenkins CI/CD; built Selenium/Appium scripts for web/mobile, enhancing coverage by 60%.",
                         ]}
                     />
 
@@ -217,8 +269,7 @@ export default function CVPage() {
                         location="NYC, NY"
                         period="Nov 2015 - Jan 2017"
                         achievements={[
-                            "Created and maintained automated tests with Selenium WebDriver in CI environment",
-                            "Drove user story analysis and designed automation tools to improve development efficiency"
+                            "Built and maintained Selenium WebDriver automation in Jenkins CI; developed internal tooling to reduce manual QA effort.",
                         ]}
                     />
                 </div>

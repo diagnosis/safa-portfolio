@@ -21,6 +21,84 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        slug: 'luxsuv',
+        title: 'LuxSUV - Premium Ground Transportation',
+        description: 'Full-stack luxury ride-sharing platform for the Seattle–Vancouver BC corridor with rider web app, driver iOS app, and admin portal.',
+        longDescription:
+            'A production-grade luxury transportation platform built across four applications: a Go REST API, a React rider web app, a React Native iOS driver app, and a React admin portal. Features multi-role authentication, real-time ride tracking via SSE, Stripe payments, Google Maps integration, and guest booking with magic links. The driver app is live on the App Store.',
+
+        techStack: [
+            'Go 1.25',
+            'Chi Router',
+            'PostgreSQL',
+            'Server-Sent Events (SSE)',
+            'Stripe',
+            'Google Maps API',
+            'React',
+            'TypeScript',
+            'React Native',
+            'Expo',
+            'EAS Build',
+            'TanStack Router',
+            'TanStack Query',
+            'Tailwind CSS',
+            'Vite',
+            'Playwright',
+            'DigitalOcean',
+            'Vercel'
+        ],
+
+        liveUrl: 'https://rider.luxsuv.us',
+        // githubUrl: private repo
+        featured: true,
+
+        problem:
+            'Build a production luxury transportation platform from scratch that serves riders, drivers, and admins across web and mobile — while handling real-world complexity like guest bookings, payment processing, real-time location tracking, and multi-role authorization.',
+
+        solution:
+            'Designed a layered Go backend with role-based JWT authentication, separate auth flows for web (httpOnly cookies) and mobile (secure token storage), and SSE for real-time updates. Built three frontend applications sharing consistent design and API patterns. Driver app published to the App Store via EAS Build.',
+
+        features: [
+            'Multi-role authentication: Rider, Driver, Admin',
+            'Guest booking with magic links (no account required)',
+            'Real-time ride tracking via Server-Sent Events',
+            'Stripe payment integration with additional fees support',
+            'Google Maps + Distance Matrix API for route pricing',
+            'Driver approval workflow and location updates',
+            'iOS driver app published to the App Store',
+            'Admin portal for managing bookings, drivers, and riders',
+            'Separate web and mobile auth endpoints (cookies vs. token body)',
+            'Email verification and SMTP notification system',
+            'Playwright E2E test suite with GitHub Actions CI/CD',
+            'Background location tracking on iOS via Expo Task Manager'
+        ],
+
+        screenshots: [
+            // add when ready
+        ],
+
+        challenges: [
+            'Architecting separate auth flows for web (httpOnly cookies) vs mobile (SecureStore) without code duplication',
+            'Distinguishing 401 (expired access token, retryable) from 403 (expired refresh token, terminal) to prevent infinite retry loops',
+            'EAS cloud builds require env vars registered via eas env:create — .env files are not bundled',
+            'Google Distance Matrix API ferry routing configuration for Seattle–Vancouver corridor',
+            'Background location tracking on iOS with Expo Task Manager and App Store compliance',
+            'Building a full TanStack Router/Query SPA architecture as a backend engineer learning frontend'
+        ],
+
+        learnings: [
+            'Defense-in-depth: enforcing business rules at both frontend and backend layers',
+            'Mobile vs web auth patterns and why they require different backend endpoints',
+            'EAS Build pipeline, TestFlight distribution, and App Store submission process',
+            'Go layered architecture at scale: handlers → stores → PostgreSQL across a large domain',
+            'TanStack Query server-state patterns: hooks, refetchInterval, optimistic updates',
+            'Real-world SSE usage for live ride status broadcasting'
+        ],
+
+        architecture:
+            'Backend: Go with Chi router on DigitalOcean. Layered architecture (handlers → stores → pgx/PostgreSQL). Booking store split across 5 files by responsibility. Middleware handles JWT auth, role checks, CORS, and guest tokens. SSE hub broadcasts real-time ride events to connected clients. Stripe and Google Maps integrated as internal services. Frontend: Rider web app and Admin portal built with React, TanStack Router/Query, Tailwind CSS v4, deployed on Vercel. Driver app built with React Native/Expo, distributed via EAS Build and published to the App Store. All clients share consistent API envelope format and token refresh patterns.'
+    },
+    {
         slug: 'deploy-watch',
         title: 'Deploy Watch - GitHub Deployment Monitor',
         description: 'Real-time GitHub deployment monitoring with SSE broadcasting, OAuth authentication, webhook integration, and analytics dashboard.',
