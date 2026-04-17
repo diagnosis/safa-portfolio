@@ -6,6 +6,7 @@ export type Project = {
     techStack: string[];
     liveUrl?: string;
     githubUrl?: string;
+    appStoreUrl?: string;
     thumbnail?: string;
     featured: boolean;
 
@@ -50,6 +51,7 @@ export const projects: Project[] = [
 
         liveUrl: 'https://rider.luxsuv.us',
         // githubUrl: private repo
+        appStoreUrl: 'https://apps.apple.com/us/app/luxsuv-driver/id6761553394',
         featured: true,
 
         problem:
@@ -74,7 +76,9 @@ export const projects: Project[] = [
         ],
 
         screenshots: [
-            // add when ready
+            '/projects/luxsuv/rider-app.webp',
+            '/projects/luxsuv/admin-portal.webp',
+            '/projects/luxsuv/driver-app.webp'
         ],
 
         challenges: [

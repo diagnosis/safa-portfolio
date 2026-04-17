@@ -11,6 +11,11 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 
+
+import {PrivateRepoButton} from "@/components/PrivateRepoButton";
+import {Apple} from "lucide-react";
+
+
 // Tell Next.js which slugs exist (for static generation)
 export function generateStaticParams() {
     return projects.map((project) => ({
@@ -26,6 +31,7 @@ export default async function ProjectPage({
 }) {
     const { slug } = await params; // Await the params Promise
     const project = projects.find((p) => p.slug === slug);
+
 
     if (!project) {
         notFound();
@@ -47,11 +53,30 @@ export default async function ProjectPage({
                             Live Demo →
                         </a>
                     </Button>
-                    <Button asChild size="lg" variant="outline">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            View Code →
-                        </a>
-                    </Button>
+
+                    {project.githubUrl ? (
+                        <Button asChild size={"lg"}>
+                            <a href={project.githubUrl}>
+                                <img src="/icons/github.svg" alt="GitHub" className="w-4 h-4" />
+                                Source</a>
+                        </Button>
+
+                    ) : (
+                        <Button asChild size={'lg'}>
+                            <PrivateRepoButton projectTitle={project.title} />
+                        </Button>
+
+                    )}
+                    {project.appStoreUrl ? (
+                        <Button asChild size="lg">
+                            <a href={project.appStoreUrl} target="-_blank" rel="noopener noreferrer">
+                                <img src="/icons/apple.svg" alt="Apple iPhone" className="w-4 h-4" />
+                                Appstore Link →
+                            </a>
+                        </Button>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
 

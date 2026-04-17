@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {useSearchParams} from "next/dist/client/components/navigation";
 
 export default function ContactPage() {
+    const searchParams = useSearchParams();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -14,6 +16,12 @@ export default function ContactPage() {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
 
+    useEffect(() => {
+        const subject = searchParams.get("subject");
+        if (subject) {
+            setFormData(prev => ({...prev, subject}));
+        }
+    }, [searchParams]);
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("loading");
