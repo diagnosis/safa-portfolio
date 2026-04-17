@@ -1,9 +1,10 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {useSearchParams} from "next/dist/client/components/navigation";
+import {useSearchParams} from "next/navigation";
+import {Loader} from "lucide-react";
 
 export default function ContactPage() {
     const searchParams = useSearchParams();
@@ -58,6 +59,7 @@ export default function ContactPage() {
     };
 
     return (
+        <Suspense fallback={<div className="flex justify-center items-center h-screen"><Loader /></div>}>
         <div className="max-w-2xl mx-auto px-4 py-20">
             <div className="mb-12 text-center animate-slide-down">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">Get in Touch</h1>
@@ -183,5 +185,6 @@ export default function ContactPage() {
                 </a>
             </div>
         </div>
+        </Suspense>
     );
 }
