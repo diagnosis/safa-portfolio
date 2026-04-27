@@ -78,7 +78,8 @@ export const projects: Project[] = [
         screenshots: [
             '/projects/luxsuv/rider-app.webp',
             '/projects/luxsuv/admin-portal.webp',
-            '/projects/luxsuv/driver-app.webp'
+            '/projects/luxsuv/driver-app.webp',
+            '/projects/luxsuv/git-work-flow.webp'
         ],
 
         challenges: [
